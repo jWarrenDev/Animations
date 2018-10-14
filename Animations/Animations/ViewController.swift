@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .black
+        
         greenSquare.backgroundColor = .green
         view.addSubview(greenSquare)
         
@@ -32,6 +34,15 @@ class ViewController: UIViewController {
         }
         
         // drop down to Core Animation for the purple square
+        // pass in a string
+        let animation = CAKeyframeAnimation(keyPath: "backgroundColor")
+        animation.values = [UIColor.gray.cgColor, UIColor.green.cgColor, UIColor.blue.cgColor, UIColor.red.cgColor, UIColor.purple.cgColor]
+        
+        //set animation duration
+        //remove on completion
+        animation.duration = 2.0
+        animation.repeatCount = 5 // or 100 
+        purpleSquare.layer.add(animation, forKey: "backgroundColorAnimation")
         
         
         
@@ -39,6 +50,6 @@ class ViewController: UIViewController {
     
      // dont need to use transient because we disabled autoLayout
      let greenSquare = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
-    let purpleSquare = UIView(frame: CGRect(x: 25, y: 250, width: 75, height: 75))
+    let purpleSquare = UIView(frame: CGRect(x: 180, y: 360, width: 75, height: 75))
 }
 
