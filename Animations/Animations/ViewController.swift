@@ -14,6 +14,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         greenSquare.backgroundColor = .green
         view.addSubview(greenSquare)
+        
+        purpleSquare.backgroundColor = .purple
+        view.addSubview(purpleSquare)
     }
 
     @IBAction func animate(_ sender: Any) {
@@ -23,12 +26,19 @@ class ViewController: UIViewController {
             frame.origin.x += 25
             frame.origin.y += 75
             
+            // change the color from green to blue
             self.greenSquare.frame = frame
             self.greenSquare.backgroundColor = .blue
         }
+        
+        // drop down to Core Animation for the purple square
+        
+        
+        
     }
     
      // dont need to use transient because we disabled autoLayout
      let greenSquare = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
+    let purpleSquare = UIView(frame: CGRect(x: 25, y: 250, width: 75, height: 75))
 }
 
