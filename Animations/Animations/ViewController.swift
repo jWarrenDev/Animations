@@ -27,9 +27,9 @@ class ViewController: UIViewController {
             var frame = self.greenSquare.frame
             frame.origin.x += 25
             frame.origin.y += 75
-            
+//
             // change the color from green to blue
-            self.greenSquare.frame = frame
+           self.greenSquare.frame = frame
             self.greenSquare.backgroundColor = .blue
         }
         
@@ -38,18 +38,18 @@ class ViewController: UIViewController {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             self.purpleSquare.layer.backgroundColor = UIColor.orange.cgColor
+            self.greenSquare.layer.backgroundColor = UIColor.gray.cgColor
         }
+        
         let animation = CAKeyframeAnimation(keyPath: "backgroundColor")
         animation.values = [UIColor.gray.cgColor, UIColor.green.cgColor, UIColor.blue.cgColor, UIColor.red.cgColor, UIColor.purple.cgColor]
         
         //set animation duration
         //remove on completion
-        animation.duration = 2.0
+        animation.duration = 1.5
         animation.repeatCount = 2 // or 100
         purpleSquare.layer.add(animation, forKey: "backgroundColorAnimation")
         CATransaction.commit()
-        
-        
     }
     
      // dont need to use transient because we disabled autoLayout
