@@ -24,6 +24,7 @@ class ViewController: UIViewController {
             frame.origin.y += 75
             
             self.greenSquare.frame = frame
+            self.greenSquare.backgroundColor = .blue
         }
     }
     
